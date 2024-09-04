@@ -1,14 +1,40 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
 
-# Un sudoku es un rompecabezas de numeros. Se le presenta al jugador
-# un cuadro de 9 X 9 casillas subdividida en sub-cuadros de 3 X 3. El
-# cuadro se le presenta al jugador con algunas casillas llenas y el
-# objetivo es que el jugador termine de llenarlas para completar el
-# cuadro siguiendo las siguientes reglas; cada fila, columna y
-# sub-cuadro de 3 X 3 debe contener los números del 1 al 9 en
-# cualquier orden. Esto es un programa que permite introducir,
-# guardar, leer y lo más importante resolver rompecabezas de sudoku.
+# Un sudoku es un rompecabezas de números. Se le
+# presenta al jugador un cuadro de 9 X 9 casillas
+# subdividida en sub-cuadros de 3 X 3. El cuadro se le
+# presenta al jugador con algunas casillas llenas y el
+# objetivo es que el jugador termine de llenarlas para
+# completar el cuadro siguiendo las siguientes reglas;
+# cada fila, columna y sub-cuadro de 3 X 3 debe contener
+# los números del 1 al 9 en cualquier orden. Esto es un
+# programa que permite introducir, guardar, leer y lo
+# más importante resolver rompecabezas de sudoku.
+
+# Este programa lo estoy escribiendo desde la pantalla
+# tactil de mi Samsung A21S. Lo comencé durante un vuelo
+# con mi esposa Mariel y mi suegra Doña Mildred de Santo
+# Domingo a New Jersey. Luego continue trabajando en el
+# cuando acompañe a mi esposa a un retiro de Barahona de
+# mujeres feministas. Mientras ellas hablaban de
+# feminismo yo estaba en una mesedora por ahí jugando
+# con este programita en el celular. Después de ahí en
+# otras ocasiones he estado avanzado según se me
+# presenta el tiempo y la inspiración.
+
+# Este fichero en particular es el programa de interface
+# con el usuario, este es el programa que se ejecuta
+# para crear un sudoku nuevo, tratar de resolverlo a
+# mano o pedirle al programa que lo resuelva. Hay dos
+# ficheros más en este paquete que también son
+# importantes. sudoku.py es el módulo más importante de
+# hecho, contiene la clase sudoku y sus sub-partes que
+# es lo que uso para representar un sudoku, una
+# instancia del rompecabezas. El último fichero sería
+# PruebasSudoku.py que contiene una colección de pruebas
+# unitarias para evaluar todas las funciones que se
+# necesitan para que este programa funcione.
 
 import sudoku
 import re
@@ -94,11 +120,11 @@ def introducirSudoku(juego):
         procesarComando(com, juego)
 
 def guardarSudoku(juego):
-    
+
     pass
 
 def leerSudoku(juego):
-    
+
     pass
 
 def solucionarSudoku(juego):

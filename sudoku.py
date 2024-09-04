@@ -1,10 +1,18 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
 
+# Este es el módulo que define la clase sudoku que es la
+# que usa el programa para crear la matriz del
+# rompecabezas y manipularla. Este módulo es usado por
+# el programa resoldoku.py y por la colección de pruebas
+# unitarias que pruban esto, todas las funciones de este
+# módulo.
+
 TIPO_NORMAL = 0
 TIPO_FIJO = 1
 
 def es1al9(val):
+    """Dice si un valor esta entre 1 y 9 inclusive."""
     return (val > 0) and (val <= 9)
 
 def traducirCoord9NumCuadro(cx, cy):
@@ -42,6 +50,11 @@ def traducirCoordCuadroCas(x, y):
     return cuadro, cas
 
 class casilla:
+    """Cada posición de la matriz del rompecabezas es
+    una casilla, una intersección de una fila y una
+    columna que además está también dentro de un
+    subcuadro."""
+
     def __init__(self, valor = 0):
         self.limpiar()
         self.valor = valor
@@ -59,7 +72,17 @@ class casilla:
         return copia
 
 class grupoCasillas:
+    """Cada fila con sus casillas, cada columna con las
+    suyas y cada subcuadro con las suyas son instancias
+    de GrupoCasillas. Ojo que estos grupos no tienen
+    casillas diferentes sino que comparten las mismas 81
+    casillas entre ellos.
+    """
+
     def __init__(self, ini):
+        """Se puede inicializar con un número entero,
+        con una lista de números o con una lista de
+        casillas."""
         self.grupo = []
         if (type(ini) is int) and (ini > 0):
             self.grupo = [casilla() for i in range(ini)]
@@ -72,6 +95,8 @@ class grupoCasillas:
             self.grupo = ini
 
     def __contains__(self, item):
+        """Verifica si un valor o una casilla están
+        dentro del grupo."""
         if type(item) is casilla:
             if item in self.grupo:
                 return True
@@ -86,15 +111,21 @@ class grupoCasillas:
         return False
 
     def __iter__(self):
+        """Se puede iterar a través de un
+        GrupoCasillas."""
         yield from self.grupo
 
     def __getitem__(self, key):
+        """Se puede extraer un item usando un indice."""
         return self.grupo[key]
 
     def __len__(self):
+        """Un GrupoCasillas tiene una longitud."""
         return len(self.grupo)
 
     def copiar(self):
+        """Un grupo de casillas se puede copiar para
+        crear una instancia clon."""
         copia = []
         for casilla in self.grupo:
             copia.append(casilla.copiar())
@@ -114,11 +145,12 @@ class sudoku:
         assert len(filas) == 9
         self.filas = filas
         self.iniciarColumnas()
-        self.iniciarSubCuadros()        
+        self.iniciarSubCuadros()
 
     def iniciarColumnas(self):
         assert self.filas != None
         assert len(self.filas) == 9
+        assert len(self.filas[0]) == 9
         self.columnas = []
         for y in range(9):
             tempg = []
@@ -221,7 +253,7 @@ class sudoku:
         for j in [ceros, vals]:
             for i in range(len(vals)):
                 self.ponerValor(i, c, j[i])
-    
+
     @ponerTodosONinguno
     def ponerSubcuadro(self, n, vals):
         assert vals != None
