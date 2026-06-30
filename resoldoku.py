@@ -3,7 +3,7 @@
 
 # Un sudoku es un rompecabezas de números. Se le
 # presenta al jugador un cuadro de 9 X 9 casillas
-# subdividida en sub-cuadros de 3 X 3. El cuadro se le
+# subdividido en 9 sub-cuadros de 3 X 3. El cuadro se le
 # presenta al jugador con algunas casillas llenas y el
 # objetivo es que el jugador termine de llenarlas para
 # completar el cuadro siguiendo las siguientes reglas;
@@ -21,7 +21,9 @@
 # feminismo yo estaba en una mesedora por ahí jugando
 # con este programita en el celular. Después de ahí en
 # otras ocasiones he estado avanzado según se me
-# presenta el tiempo y la inspiración.
+# presenta el tiempo y la inspiración. Ahora es 2026 y
+# voy en otro avión camino a Bogotá y vuelvo a jugar con
+# esto.
 
 # Este fichero en particular es el programa de interface
 # con el usuario, este es el programa que se ejecuta
